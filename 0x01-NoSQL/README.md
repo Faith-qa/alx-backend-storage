@@ -25,7 +25,7 @@
     * [Introduction to MongoDB and Python](https://alx-intranet.hbtn.io/rltoken/axwwF4CjO7FnK8Ecochqnw)
 
     * [mongo Shell Methods](https://alx-intranet.hbtn.io/rltoken/CK-PTdRSbTqTeLqfo43v8A)
-    
+
     * [The mongo Shell](https://alx-intranet.hbtn.io/rltoken/GT5RGf-0pRR_I5FYpw7sQg)
 
 # Learning Objectives
@@ -116,7 +116,6 @@ $
 
 # Tasks
 | 0.List all databases |
-| -------------------- |
 | write a script that lists all databases in MongoDB.
 ```
 guillaume@ubuntu:~/0x01$ cat 0-list_databases | mongo
@@ -127,6 +126,28 @@ admin        0.000GB
 config       0.000GB
 local        0.000GB
 logs         0.005GB
+bye
+guillaume@ubuntu:~/0x01$
+``` |
+
+| create a database |
+| Wrtie a script that creates or uses ```my_db```:
+```
+guillaume@ubuntu:~/0x01$ cat 0-list_databases | mongo
+MongoDB shell version v3.6.3
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.6.3
+admin        0.000GB
+config       0.000GB
+local        0.000GB
+logs         0.005GB
+bye
+guillaume@ubuntu:~/0x01$
+guillaume@ubuntu:~/0x01$ cat 1-use_or_create_database | mongo
+MongoDB shell version v3.6.3
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.6.3
+switched to db my_db
 bye
 guillaume@ubuntu:~/0x01$
 ``` |
