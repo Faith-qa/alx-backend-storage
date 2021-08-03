@@ -13,12 +13,19 @@
  Read or watch:
 
    * [NoSQL Databases Explained](https://alx-intranet.hbtn.io/rltoken/wweK7dOY4pf8haCqv9Iv6Q)
+
     * [What is NoSQL ?](https://alx-intranet.hbtn.io/rltoken/QqqNmgzgwopHBv305ki6bg)
+
     * [Building Your First Application: An Introduction to MongoDB](https://alx-intranet.hbtn.io/rltoken/vQl-gYKhCJH7vV3yM7c4dw)
+
     * [MongoDB Tutorial 2 : Insert, Update, Remove, Query](https://alx-intranet.hbtn.io/rltoken/9__3tR-NimgXlmjPQwTF-Q)
+
     * [Aggregation] (https://alx-intranet.hbtn.io/rltoken/5wocKNzm6MSQyHrFad1fZw)
+    
     * [Introduction to MongoDB and Python](https://alx-intranet.hbtn.io/rltoken/axwwF4CjO7FnK8Ecochqnw)
+
     * [mongo Shell Methods](https://alx-intranet.hbtn.io/rltoken/CK-PTdRSbTqTeLqfo43v8A)
+    
     * [The mongo Shell](https://alx-intranet.hbtn.io/rltoken/GT5RGf-0pRR_I5FYpw7sQg)
 
 # Learning Objectives
@@ -106,3 +113,20 @@ local   0.000GB
 bye
 $
 ```
+
+# Tasks
+| 0.List all databases |
+| -------------------- |
+| write a script that lists all databases in MongoDB.
+```
+guillaume@ubuntu:~/0x01$ cat 0-list_databases | mongo
+MongoDB shell version v3.6.3
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.6.3
+admin        0.000GB
+config       0.000GB
+local        0.000GB
+logs         0.005GB
+bye
+guillaume@ubuntu:~/0x01$
+``` |
