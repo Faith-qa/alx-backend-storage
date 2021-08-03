@@ -13,19 +13,12 @@
  Read or watch:
 
    * [NoSQL Databases Explained](https://alx-intranet.hbtn.io/rltoken/wweK7dOY4pf8haCqv9Iv6Q)
-
     * [What is NoSQL ?](https://alx-intranet.hbtn.io/rltoken/QqqNmgzgwopHBv305ki6bg)
-
     * [Building Your First Application: An Introduction to MongoDB](https://alx-intranet.hbtn.io/rltoken/vQl-gYKhCJH7vV3yM7c4dw)
-
     * [MongoDB Tutorial 2 : Insert, Update, Remove, Query](https://alx-intranet.hbtn.io/rltoken/9__3tR-NimgXlmjPQwTF-Q)
-
     * [Aggregation] (https://alx-intranet.hbtn.io/rltoken/5wocKNzm6MSQyHrFad1fZw)
-    
     * [Introduction to MongoDB and Python](https://alx-intranet.hbtn.io/rltoken/axwwF4CjO7FnK8Ecochqnw)
-
     * [mongo Shell Methods](https://alx-intranet.hbtn.io/rltoken/CK-PTdRSbTqTeLqfo43v8A)
-
     * [The mongo Shell](https://alx-intranet.hbtn.io/rltoken/GT5RGf-0pRR_I5FYpw7sQg)
 
 # Learning Objectives
@@ -132,8 +125,8 @@ guillaume@ubuntu:~/0x01$
 
 | create a database |
 | Wrtie a script that creates or uses ```my_db```:
-```
-guillaume@ubuntu:~/0x01$ cat 0-list_databases | mongo
+
+``` guillaume@ubuntu:~/0x01$ cat 0-list_databases | mongo
 MongoDB shell version v3.6.3
 connecting to: mongodb://127.0.0.1:27017
 MongoDB server version: 3.6.3
@@ -157,6 +150,7 @@ guillaume@ubuntu:~/0x01$
 
 * The document must have one attribute name with value “Holberton school”
 * The database name will be passed as option of mongo command 
+
 ```
 guillaume@ubuntu:~/0x01$ cat 2-insert | mongo my_db
 MongoDB shell version v3.6.3
@@ -171,8 +165,25 @@ guillaume@ubuntu:~/0x01$
 | Write a script that lists all documents in the collection ```school```:
 
     * The database name will be passed as option of mongo command
+
 ```
 guillaume@ubuntu:~/0x01$ cat 3-all | mongo my_db
+MongoDB shell version v3.6.3
+connecting to: mongodb://127.0.0.1:27017/my_db
+MongoDB server version: 3.6.3
+{ "_id" : ObjectId("5a8fad532b69437b63252406"), "name" : "Holberton school" }
+bye
+guillaume@ubuntu:~/0x01$
+```
+|
+
+| 4. All matches |
+| Write a script that lists all documents with  name="Holberton school" in the collection school:
+
+    * The database name will be passed as option of mongo command
+
+```
+guillaume@ubuntu:~/0x01$ cat 4-match | mongo my_db
 MongoDB shell version v3.6.3
 connecting to: mongodb://127.0.0.1:27017/my_db
 MongoDB server version: 3.6.3
