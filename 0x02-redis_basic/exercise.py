@@ -5,7 +5,7 @@ writting string to redis
 
 import redis
 from uuid import uuid4
-from typing import Union
+from typing import Callable, Union, ValuesView
 
 
 class Cache:
@@ -24,3 +24,20 @@ class Cache:
         self._redis.set(key, data)
 
         return key
+    
+    def get(self,  key: str, fn: Callable = None):
+        """converts redis data back to desired format"""
+        data = self._redis.get(key)
+        if fn is not None:
+            return fn(data)
+        return data
+
+    def get_str(self, key: str) -> str:
+        """Parametize Cache.get to str"""
+        data = self._redis.get(key)
+        return data.decode("utf-8")
+
+    def get_int(self, key: str) -> int:
+        """parametizes Cache.get to int"""
+        data = self._redis.get(key)
+        return data.decode("utf-8")
