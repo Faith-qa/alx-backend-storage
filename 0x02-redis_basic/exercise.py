@@ -13,12 +13,12 @@ def count_calls(method: Callable) -> Callable:
     """
     a decorator that takes a single method and returns a callable
     """
-    key = method.__qualname__
+    method_key = method.__qualname__
 
     @wraps(method)
     def wrapper(self, *args, **kwds):
         """wrapped function that increment key"""
-        self._redis.incr(key)
+        self._redis.incr(method_key)
         return method(self, *args, **kwds)
     return wrapper
 
@@ -29,6 +29,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """
         takes data args and returns a string
