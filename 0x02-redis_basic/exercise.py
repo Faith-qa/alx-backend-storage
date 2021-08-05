@@ -6,7 +6,20 @@ writting string to redis
 import redis
 from uuid import uuid4
 from typing import Callable, Union, ValuesView
+from functools import wraps
 
+
+def count_calls(method: Callable) -> Callable:
+    """
+    a decorator that takes a single method and returns a callable
+    """
+    key = method.__qualname__
+    @wraps(method)
+    def wrapper(self, *args, **kwds):
+        """wrapped function that increment key"""
+        self._redis.incr(key)
+        return method(self, *args, **kwds)
+    return wrapper
 
 class Cache:
     def __init__(self):

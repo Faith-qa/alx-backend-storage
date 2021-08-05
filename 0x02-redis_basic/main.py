@@ -7,6 +7,8 @@ import redis
 Cache = __import__('exercise').Cache
 
 cache = Cache()
+
+
 TEST_CASES = {
     b"foo": None,
     123: int,
@@ -24,3 +26,12 @@ print(key)
 
 local_redis = redis.Redis()
 print(local_redis.get(key))
+
+
+cache.store(b"first")
+print(cache.get(cache.store.__qualname__))
+
+cache.store(b"second")
+cache.store(b"third")
+print(cache.get(cache.store.__qualname__))
+
