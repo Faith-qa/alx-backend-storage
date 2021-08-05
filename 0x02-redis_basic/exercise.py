@@ -45,13 +45,13 @@ def count_calls(method: Callable) -> Callable:
 def replay(method: Callable):
     """ display the history call """
     method_key = method.__qualname__
-    inputs = method_key + ":inputs"
-    outputs = method_key + ":outputs"
+    input_key = method_key + ":inputs"
+    output_key = method_key + ":outputs"
     redis = method.__self__._redis
     count = redis.get(method_key).decode("utf-8")
     print("{} was called {} times:".format(method_key, count))
-    ListInput = redis.lrange(inputs, 0, -1)
-    ListOutput = redis.lrange(outputs, 0, -1)
+    ListInput = redis.lrange(input_key, 0, -1)
+    ListOutput = redis.lrange(output_key, 0, -1)
     allData = list(zip(ListInput, ListOutput))
     for key, data in allData:
         attr, data = key.decode("utf-8"), data.decode("utf-8")
