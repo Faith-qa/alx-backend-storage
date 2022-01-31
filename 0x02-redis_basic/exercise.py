@@ -26,10 +26,10 @@ class Cache:
         calable argument called fn: fn will be used to 
         convert data back to the desired type
         """
-        valk = self._redis.get(key)
+        data = self._redis.get(key)
         if fn is not None:
-            return fn(valk)
-        return valk
+            return fn(data)
+        return data
        
     def get_str(self, data:str) -> str:
         """
