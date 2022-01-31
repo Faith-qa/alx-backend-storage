@@ -20,7 +20,7 @@ class Cache:
 
 
 
-    def get(self, key:str, fn: Optional[Callable]) -> Union[str, int, float, bytes]:
+    def get(self, key:str, fn: Optional[Callable] = None) -> Union[str, int, float, bytes]:
         """
         takes a key: argument and an optional 
         calable argument called fn: fn will be used to 
@@ -31,17 +31,14 @@ class Cache:
             return fn(valk)
         return valk
        
-    def get_str(self, key: str) -> str:
+    def get_str(self, data:str) -> str:
         """
         this method will automatically parametirize catche.get
         to the correct conversion function
         """
-        data = self._redis.get(key, lambda x: x.decode('utf-8'))
-        return data
-
-    def get_int(self, key: int) -> int:
+        return data.decode('utf-8')  
+    def get_int(self, data: int) -> int:
         """
         that will automatically parametrize Cache.get with the correct conversion function.
         """
-        data = self._redis.get(key, lambda x: int(x))
-        return data
+        return int(data)
