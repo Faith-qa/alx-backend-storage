@@ -20,18 +20,17 @@ class Cache:
 
 
 
-    def get(self, key:str, fn: Optional[Callable]=None) -> Union[str, int, float, bytes]:
+    def get(self, key:str, fn: Optional[Callable]) -> Union[str, int, float, bytes]:
         """
         takes a key: argument and an optional 
         calable argument called fn: fn will be used to 
         convert data back to the desired type
         """
         valk = self._redis.get(key)
-        if valk is not None:
-            val_conv = fn(valk)
-            return val_conv
+        if fn is not None:
+            return fn(valk)
         return valk
-
+       
     def get_str(self, key: str) -> str:
         """
         this method will automatically parametirize catche.get
@@ -46,4 +45,3 @@ class Cache:
         """
         data = self._redis.get(key, lambda x: int(x))
         return data
-        
